@@ -1,11 +1,11 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Countries from './components/Countries';
-import CountriesSingle from './components/CountriesSingle';
-import Home from './components/Home';
-import Layout from './pages/Layout';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Countries from "./components/Countries";
+import CountriesSingle from "./components/CountriesSingle";
+import Home from "./components/Home";
+import Layout from "./pages/Layout";
 
-import 'bootstrap-icons/font/bootstrap-icons.css';
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 const App = () => {
   return (
