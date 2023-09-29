@@ -1,0 +1,37 @@
+.border-container {
+    margin-top: 1rem;
+    height: 18rem;
+    width: 15rem;
+  }
+  
+  h4 {
+    text-align: center;
+  }
+  
+  ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  li {
+    list-style: none;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .link-container {
+    background-color: gainsboro;
+    border: none;
+    border-radius: 5px;
+    width: fit-content;
+  }
+  
+  .link-container:hover {
+    background-color: lightblue;
+  }
+  
+  a {
+    text-decoration: none;
+    color: black;
+    padding: 0.5rem;
+  }

@@ -1,42 +1,69 @@
 import React from 'react';
-import {useLocation, useNavigate} from 'react-router-dom';
-import { Container } from 'react-bootstrap';
+import { Col, Container, Row, Spinner, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { useEffect } from 'react';
-import axios from 'axios';
+import Weather from './CountrySingle/Weather';
+import Images from './CountrySingle/Images';
+import { useLocation } from 'react-router-dom';
+import Borders from './CountrySingle/Borders';
+import CountryInfo from './CountrySingle/CountryInfo';
+
 
 const CountriesSingle = () => {
-  //Function hooks
- const location = useLocation();
- const navigate = useNavigate();
+
+  //function hooks
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const country = location.state.country;
 
 
- //State hooks
- const [weather, setWeather] = useState('');
- const [errors, setError] = useState(false);
-const [loading, setLoading] = useState(true);
+  //State hooks
 
-  //Destructuring variables
-const country = location.state.country;
+  const [loading, setLoading] = useState(true);
 
-
- useEffect(()=> {
-  axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${country.capital}&units=metric&appid=${process.env.REACT_APP_OPENWEATHER_KEY}`)
-  .catch((err) => {
-    setError(true);
-  })
-  .then((res) => {
-    setWeather(res.data);
-    setLoading(false);
-  })
- }, [country.capital])
-
-console.log("Weather: ", weather);
-
+  if (!loading) {
+    return (
+      <Container>
+        <Spinner
+          animation="border"
+          role="status"
+          className='center'
+          variant="info"
+        >
+          <span className='"visually-hidden'></span>
+        </Spinner>
+      </Container>
+    );
+  }
   return (
+
     <Container>
-      <div>Single Country will be here</div>
-    </Container>
+      <Row className=" mt-5 ">
+        <Col >
+          <Images />
+        </Col>
+        <Col>
+          <Weather />
+        </Col>
+        <Col>
+          <CountryInfo />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Button variant="light" onClick={() => navigate("/countries")}>
+            Back to countries
+          </Button>
+        </Col>
+        <Col>
+          <Borders />
+        </Col>
+      </Row>
+      <Row>
+        <img src={`https://source.unsplash.com/1600x900/?${country.name.common}`} alt={country.name.common} />
+      </Row>
+    </Container >
   );
 };
 

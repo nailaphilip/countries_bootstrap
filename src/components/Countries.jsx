@@ -11,18 +11,19 @@ import CountryCard from './CountryCard';
 const Countries = () => {
   const dispatch = useDispatch();
   const countriesList = useSelector((state) => state.countries.countries);
-  // const loading = useSelector((state) => state.countries.loading);
-
-  console.log("CountriesList = ", countriesList)
+  const loading = useSelector((state) => state.countries.isLoading);
 
   const [search, setSearch] = useState('')
 
-  console.log("Search: ", search)
+
+  // const filteredCountries = countriesList.filter((country) =>
+  //   country.name.common.toLowerCase().includes(search.toLowerCase())
+  // );
+  console.log("countriesList: ", countriesList);
 
   useEffect(() => {
     dispatch(initializeCountries())
-  },
-  [dispatch])
+  }, [dispatch])
 
 
   return (
@@ -42,14 +43,23 @@ const Countries = () => {
         </Col>
       </Row>
       <Row xs={2} md={3} lg={4} className=" g-3">
-      { /*Add filter here and filre before you map the results. Your filter */
-      countriesList.map((country) => {
-        return (
-          <CountryCard country={country} key={country.name.common}/>
-        )
-      })
-    }
-    </Row>
+        {/* {search ? (
+          filteredCountries.map((country) => {
+            return <CountryCard country={country} key={country.name.common} />
+          })
+        ) : (
+          countriesList.map((country) => {
+            return <CountryCard country={country} key={country.name.common} />
+          })
+        )} */}
+        {countriesList.filter((c) => {
+
+          return c.name.official.toLowerCase().includes(search.toLowerCase());
+        })
+          .map((country) => (
+            <CountryCard key={country.name.common} country={country} />
+          ))}
+      </Row>
     </Container>
   );
 };
