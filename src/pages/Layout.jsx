@@ -7,6 +7,8 @@ import Row from 'react-bootstrap/Row';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Button } from 'react-bootstrap';
 import { logout } from '../auth/firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../auth/firebase';
 
 const Layout = () => {
   return (
@@ -23,6 +25,9 @@ const Layout = () => {
                 <LinkContainer to="/countries">
                   <Nav.Link>Countries</Nav.Link>
                 </LinkContainer>
+                <LinkContainer to="/favourites">
+                  <Nav.Link>Favourites</Nav.Link>
+                </LinkContainer>
                 <LinkContainer to="/login">
                   <Nav.Link>Login</Nav.Link>
                 </LinkContainer>
@@ -31,7 +36,9 @@ const Layout = () => {
                 </LinkContainer>
               </Nav>
             </Navbar.Collapse>
-            <Button onClick={logout}>Logout</Button>
+            {<Button variant="primary" onClick={logout}>Logout</Button>}
+            {/* {!loading && user ? (
+             <Button variant="primary" hidden={loading} onClick={logout}>Logout</Button>) : (<LinkContainer to="/login"><Button>Login</Button></LinkContainer>)} */}
           </Container>
         </Navbar>
       </Row>
