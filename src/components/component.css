@@ -66,3 +66,26 @@ h6 {
   background-color: lightslategray;
   color: white;
 }
+
+
+/* Card */
+.component {
+  transition: transform 0.3s ease-in-out; 
+}
+
+.component:hover {
+  transform: scale(1.05);
+}
+
+.Col {
+  background-color: lightslategrey; 
+  padding: 0.5rem; 
+  border: none;
+  border-radius: 5px;
+  margin: 0.5rem 1rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.Col:hover {
+  transform: scale(1.05);
+}
