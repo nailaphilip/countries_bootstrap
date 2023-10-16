@@ -2,8 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const favourites =
   localStorage.getItem("favourites") !== null
-    ? JSON.parse(localStorage.getItme("favourites"))
+    ? JSON.parse(localStorage.getItem("favourites"))
     : [];
+// Can be used for testing
+// const favourites = ["Finland"]
 
 export const favouritesSlice = createSlice({
   name: "favourites",
@@ -11,14 +13,15 @@ export const favouritesSlice = createSlice({
     favourites,
   },
   reducers: {
-    addFavourite: (state, action) => {
+    addFavourite(state, action) {
+      // The line below is not necessary but can be useful as a check to see if localStorage favourite already exists
       if (state.favourites.some((fav) => fav === action.payload))
         state.favourites = [...state.favourites];
       state.favourites = [...state.favourites, action.payload];
       localStorage.setItem("favourites", JSON.stringify(state.favourites));
     },
     removeFavourite(state, action) {
-      const newArray = [...state, favourites];
+      const newArray = [...state.favourites];
       newArray.splice(
         newArray.findIndex((e) => e === action.payload),
         1

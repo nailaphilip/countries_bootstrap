@@ -14,7 +14,8 @@
   height: 23rem;
   width: 20rem;
   padding: 2rem;
-  background-color: lightblue;
+  background-color: lightsteelblue;
+  border-radius: 5px;
 }
 
 .card-item div {
@@ -47,7 +48,7 @@ h6 {
 }
 
 .banner-link {
-  background-color: lightblue;
+  background-color: lightsteelblue;
   height: 3rem;
   width: 12rem;
   text-decoration: none;
@@ -56,12 +57,12 @@ h6 {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: none;
+  border-style: groove;
   border-radius: 5px;
 }
 
 .banner-link:hover {
   text-decoration: underline;
-  background-color: dodgerblue;
+  background-color: lightslategray;
   color: white;
 }
