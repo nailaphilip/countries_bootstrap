@@ -102,8 +102,14 @@ Once the application is up and running, you can start using it. Here are some of
 
 ## Features
 
-- List the key features of your application here.
-- Include any additional information about the functionality of your app.
+The app allows users to view information about various countries, including details such as:
+
+Country List: Users can see a list of all available countries.
+Languages Spoken: Information about the languages spoken in each country.
+Population: Details about the population of each country.
+Flags: Display flags of each country.
+Current Weather: Users can access the current weather information for selected countries.
+Favourites: Users can add countries to the favourites list.
 
 ## License
 
